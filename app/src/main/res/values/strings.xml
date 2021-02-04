@@ -1,0 +1,29 @@
+<resources>
+
+    <string name="app_name">Food Shop</string>
+    <string name="signup">Sign up</string>
+    <string name="signin">Sign in</string>
+    <string name="already_have_account">Already Have Account?</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="email">Email</string>
+    <string name="logout">Logout</string>
+    <string name="title_activity_main">Main</string>
+    <string name="exitmassage">Do you really want to exit?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="exit">Exit</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="already_member">Already Member?</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+
+    <string name="menu_home">Home</string>
+    <string name="my_account">My account</string>
+    <string name="order">Order</string>
+    <string name="cart">Cart</string>
+    <!-- TODO: Remove or change this placeholder text -->
+
+</resources>

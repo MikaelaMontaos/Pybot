@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backg"
+    tools:context="com.FoodShop.Register">
+
+
+    <ImageView
+        android:layout_marginTop="100dp"
+        android:src="@drawable/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_marginTop="200dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:text="@string/app_name"
+        android:fontFamily="@font/stilsa"
+        android:textSize="40sp"
+        android:textColor="@color/primary"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="290dp"
+        android:textColor="#033228"
+        android:text="@string/signup"
+
+        android:textSize="25sp"
+        android:fontFamily="@font/comforta"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"/>
+    <androidx.cardview.widget.CardView
+        android:layout_width="320dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="70dp"
+        android:layout_height="330dp"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="@color/lightgray"
+        app:cardCornerRadius="0dp"
+
+        >
+        <View
+            android:layout_width="match_parent"
+            android:background="@drawable/cardviewborder"
+            android:layout_height="match_parent"/>
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="250dp"
+            app:endIconMode="clear_text"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:hint="@string/email"
+
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center_horizontal"
+            android:imeOptions="flagNoExtractUi"
+            android:textAlignment="center"
+
+            android:outlineAmbientShadowColor="@color/primary2light"
+
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:textSize="@dimen/textedit"
+                android:fontFamily="@font/comforta"
+                android:inputType="textPersonName"
+                android:padding="1sp"
+                android:layout_height="40sp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+<LinearLayout
+    android:layout_width="250dp"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="80dp"
+    android:orientation="horizontal"
+    android:weightSum="2"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+android:layout_marginEnd="1dp"
+        android:hint="@string/first_name"
+        android:imeOptions="flagNoExtractUi"
+        android:outlineAmbientShadowColor="@color/primary2light"
+
+        app:endIconMode="clear_text"
+
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="40sp"
+            android:maxLength="11"
+            android:fontFamily="@font/comforta"
+            android:inputType="phone"
+            android:padding="1sp"
+
+            android:textSize="@dimen/textedit" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+android:layout_marginStart="1dp"
+        android:hint="@string/last_name"
+        android:imeOptions="flagNoExtractUi"
+        android:outlineAmbientShadowColor="@color/primary2light"
+
+        app:endIconMode="clear_text"
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="40sp"
+            android:maxLength="11"
+            android:fontFamily="@font/comforta"
+            android:inputType="phone"
+            android:padding="1sp"
+
+            android:textSize="@dimen/textedit" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+</LinearLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="250dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="130dp"
+            app:endIconMode="password_toggle"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/password"
+            android:imeOptions="flagNoExtractUi"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+                android:padding="1sp"
+            android:textSize="@dimen/textedit"
+            android:fontFamily="@font/comforta"
+            android:inputType="textPassword"
+            android:layout_height="40sp"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+        <TextView
+            android:fontFamily="@font/comforta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/already_member"
+            android:layout_marginTop="185dp"
+            android:layout_gravity="right"
+            android:textSize="10sp"
+            android:textColor="@color/design_default_color_secondary_variant"
+            android:layout_marginRight="31sp"/>
+
+        <TextView
+            android:fontFamily="@font/comforta"
+            android:layout_width="200dp"
+            android:maxLines="2"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:text="@string/forgot_password"
+            android:layout_marginTop="50dp"
+            android:visibility="invisible"
+            android:layout_gravity="center"
+            android:textSize="12sp"
+
+            android:textColor="#f00"
+            />
+        <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
+            android:layout_height="50dp"
+            android:layout_width="250dp"
+            android:id="@+id/registerBtnReg"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/primary"
+            android:text="@string/signup"
+
+            app:spinning_bar_color="@color/secondary"
+            app:spinning_bar_width="2dp"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:layout_gravity="center_horizontal|bottom"
+
+            />
+
+
+        <!--        <TextView-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--android:textColor="@color/primary1"-->
+        <!--            android:text="@string/or_login_using"-->
+        <!--            android:layout_marginBottom="70sp"-->
+
+        <!--         android:layout_gravity="center|bottom"-->
+        <!--            />-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_gravity="center|bottom"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <!--            <ImageButton-->
+            <!--                android:layout_width="60dp"-->
+            <!--                android:layout_height="60dp"-->
+            <!--                android:scaleType="centerCrop"-->
+            <!--                android:layout_margin="10dp"-->
+            <!--                android:src="@drawable/googlelogo"-->
+            <!--                android:tint="@color/primary4"-->
+            <!--                android:backgroundTint="#00FFFFFF"/>-->
+            <!--             <ImageButton-->
+            <!--                android:layout_width="60dp"-->
+            <!--                android:layout_height="60dp"-->
+            <!--                android:scaleType="centerCrop"-->
+            <!--                android:layout_margin="10dp"-->
+            <!--                 android:tint="@color/primary4"-->
+            <!--                android:src="@drawable/facebooklogo"-->
+            <!--                 android:backgroundTint="#00FFFFFF"-->
+            <!--               />-->
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+</RelativeLayout>

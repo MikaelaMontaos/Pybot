@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+app:cardCornerRadius="15dp"
+android:layout_margin="5dp"
+app:cardBackgroundColor="@color/primary"
+    android:layout_height="160dp">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="60dp"
+        app:civ_border_color="#CB009688"
+        app:civ_border_width="1dp"
+        android:layout_marginStart="20dp"
+
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/useravatar"/>
+    <TextView
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="80dp"
+        android:textStyle="bold"
+        android:layout_marginTop="67dp"
+        android:text="Account Name"/>
+    <com.rilixtech.widget.countrycodepicker.CountryCodePicker
+        android:layout_width="wrap_content"
+        app:ccp_hideNameCode="true"
+        android:visibility="gone"
+        app:ccp_hidePhoneCode="true"
+app:ccp_textColor="@color/white"
+        app:ccp_showFlag="false"
+        android:layout_height="wrap_content"/>
+   <TextView
+        android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+        android:textSize="14sp"
+       android:alpha="0.7"
+        android:textColor="@color/lightgreen"
+       android:layout_alignParentStart="true"
+       android:layout_marginStart="80dp"
+        android:layout_marginTop="84dp"
+        android:text="Customer"/>
+</androidx.cardview.widget.CardView>
+
+</RelativeLayout>
