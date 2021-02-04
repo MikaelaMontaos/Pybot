@@ -47,6 +47,16 @@ mysql> show databases;
 mysql> use PyBOT
 Database changed
 
+USER Login:
+mysql> desc USER_Login;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| User_Name | varchar(40) | NO   | MUL | NULL    |       |
+| PASS_WORD | varchar(10) | NO   |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
 
 mysql> select * from USER_Login;
 +-----------+------------+
@@ -56,6 +66,23 @@ mysql> select * from USER_Login;
 | Maria123  | maria1234  |
 +-----------+------------+
 2 rows in set (0.00 sec)
+
+
+USER Sign Up: 
+mysql> desc USER_SignUp;                                                                              
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| User_Name | varchar(40) | NO   | PRI | NULL    |       |
+| F_NAME    | varchar(45) | NO   |     | NULL    |       |
+| L_NAME    | varchar(45) | NO   |     | NULL    |       |
+| PASS_WORD | varchar(10) | NO   |     | NULL    |       |
+| PHONE_NO  | varchar(13) | NO   |     | NULL    |       |
+| EMAIL     | varchar(45) | NO   |     | NULL    |       |
+| ADDRESS   | varchar(60) | NO   |     | NULL    |       |
+| ZIPCODE   | varchar(10) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+8 rows in set (0.01 sec)
 
 
 mysql> select * from USER_SignUp;
