@@ -98,7 +98,46 @@ mysql> select * from USER_SignUp;
 
 
 
+STORES:
 
+create table STORES(STORE_ID integer PRIMARY KEY NOT NULL, STORE_NAME VARCHAR(45), PHONE_NO varchar(13),
+EMAIL VARCHAR(25),OWNER VARCHAR(45),ZIPCODE VARCHAR(10),CITY VARCHAR(25),STATE VARCHAR(3));
+
+mysql> desc STORES;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| STORE_ID   | int(11)     | NO   | PRI | NULL    |       |
+| STORE_NAME | varchar(45) | YES  |     | NULL    |       |
+| PHONE_NO   | varchar(13) | YES  |     | NULL    |       |
+| EMAIL      | varchar(25) | YES  |     | NULL    |       |
+| OWNER      | varchar(45) | YES  |     | NULL    |       |
+| ZIPCODE    | varchar(10) | YES  |     | NULL    |       |
+| CITY       | varchar(25) | YES  |     | NULL    |       |
+| STATE      | varchar(3)  | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+
+insert into STORES values(120,'Dominos','650-568-4040','last@dominos.com','Martin Bein',94062,'San Jose','CA');
+Query OK, 1 row affected (0.08 sec)
+
+insert into STORES values(150,'Panda Express','650-333-7770','michael@pandaexpress.com','Michael Saylor',94064,'Santa Clara','CA');
+Query OK, 1 row affected (0.09 sec)
+
+insert into STORES values(112,'Chipotle','650-369-8678','peter.diaz@lucky.com','Peter Diaz',94061,'Redwood City','CA');
+Query OK, 1 row affected (0.08 sec)
+
+
+mysql> select * from Stores;
++----------+---------------+--------------+--------------------------+----------------+---------+--------------+-------+
+| STORE_ID | STORE_NAME    | PHONE_NO     | EMAIL                    | OWNER          | ZIPCODE | CITY         | STATE |
++----------+---------------+--------------+--------------------------+----------------+---------+--------------+-------+
+|      112 | Chipotle      | 650-369-8678 | peter.diaz@lucky.com     | Peter Diaz     | 94061   | Redwood City | CA    |
+|      120 | Dominos       | 650-568-4040 | last@dominos.com         | Martin Bein    | 94062   | San Jose     | CA    |
+|      150 | Panda Express | 650-333-7770 | michael@pandaexpress.com | Michael Saylor | 94064   | Santa Clara  | CA    |
++----------+---------------+--------------+--------------------------+----------------+---------+--------------+-------+
+3 rows in set (0.00 sec)
 
 
 
