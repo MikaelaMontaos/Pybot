@@ -28,3 +28,50 @@ insert into USER_Login values('Philip221','Philip8908');
 
 select * from USER_SignUp;
 select * from USER_SignUp;
+
+
+Use Terimnal/command prompt to access the database
+Command Used:   
+mysql -u root -p
+Enter password: 
+
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| PyBOT              |
++--------------------+
+
+
+mysql> use PyBOT
+Database changed
+
+
+mysql> select * from USER_Login;
++-----------+------------+
+| User_Name | PASS_WORD  |
++-----------+------------+
+| Philip221 | Philip8908 |
+| Maria123  | maria1234  |
++-----------+------------+
+2 rows in set (0.00 sec)
+
+
+mysql> select * from USER_SignUp;
++--------------+-----------+--------+-----------+--------------+--------------------+-------------------------------+---------+
+| User_Name    | F_NAME    | L_NAME | PASS_WORD | PHONE_NO     | EMAIL              | ADDRESS                       | ZIPCODE |
++--------------+-----------+--------+-----------+--------------+--------------------+-------------------------------+---------+
+| Alexander300 | Alexander | Feuer  | LLD161789 | 122-292-3323 | AFeuer@gmail.com   | 265, boulevard Charonne,Paris | 75012   |
+| DevonAnn123  | Ann       | Devon  | 123abcde  | 412-292-003  | AnnDevon@ymail.com | 35 King George,USA            | 97403   |
+| Maria123     | Maria     | Anders | 123456789 | 111-222-3331 | Maria@gmail.com    | Obere Str.57                  | 97219   |
+| Philip221    | Philip    | Cramer | 234561789 | 222-222-3333 | Philip@gmail.com   | 1900 Oak St.                  | V3F 2K1 |
++--------------+-----------+--------+-----------+--------------+--------------------+-------------------------------+---------+
+4 rows in set (0.00 sec)
+
+
+
+
+
+
+
