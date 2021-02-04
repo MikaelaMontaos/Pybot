@@ -1,7 +1,10 @@
 # Pybot
 Capstone project where a robot assistant delivers food to customers at the airport food court.
+
 Frontend: Java, Android Studio
+
 Backend: mySQL
+
 Robot: Python, Raspberry Pi
 
 Contributors:
