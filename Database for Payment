@@ -1,0 +1,49 @@
+/* SQL queries for payment */
+
+/* USER_Payment_Type */
+create table USER_Payment_Type(
+    ID int auto_increment primary key,
+    USERNAME varchar(50) not null,
+    TYPE_NAME varchar(50),
+    CARD_NUMBER bigint(16) not null,
+    EXP_DATE varchar(20) not null,
+    CCV int(3) not null,
+    foreign key(USERNAME) references USER_SignUp(User_Name)
+);
+
+insert into USER_Payment_Type values(1, 'Maria123', 'Visa', 1234567898765432, '2022-01', 123
+);
+insert into USER_Payment_Type values(2, 'Philip221', 'Mastercard', 9874563210123654, '2023-02', 456);
+insert into USER_Payment_Type values(3, 'Alexander300', 'Visa', 5791384620197535, '2024-03', 789);
+
+select * from USER_Payment_Type;
++----+--------------+------------+------------------+----------+-----+
+| ID | USERNAME     | TYPE_NAME  | CARD_NUMBER      | EXP_DATE | CCV |
++----+--------------+------------+------------------+----------+-----+
+|  1 | Maria123     | Visa       | 1234567898765432 | 2022-01  | 123 |
+|  2 | Philip221    | Mastercard | 9874563210123654 | 2023-02  | 456 |
+|  3 | Alexander300 | Visa       | 5791384620197535 | 2024-03  | 789 |
++----+--------------+------------+------------------+----------+-----+
+
+/* USER_Payment_Data */
+create table USER_Payment_Data(
+    ID int auto_increment primary key,
+    PAYMENT_ID int,
+    PAYMENT_DATE date,
+    STORE_NAME varchar(50),
+    AMOUNT decimal(10,2),
+    foreign key(PAYMENT_ID) references USER_Payment_Type(ID)
+);
+
+insert into USER_Payment_Data values(1, 1, '2021-02-01', 'Chipotle', 15.25);
+insert into USER_Payment_Data values(2, 2, '2021-02-05', 'Dominos', 10.75);
+insert into USER_Payment_Data values(3, 3, '2021-02-10', 'Panda Express', 18.40);
+
+select * from USER_Payment_Data;
++----+------------+--------------+---------------+--------+
+| ID | PAYMENT_ID | PAYMENT_DATE | STORE_NAME    | AMOUNT |
++----+------------+--------------+---------------+--------+
+|  1 |          1 | 2021-02-01   | Chipotle      |  15.25 |
+|  2 |          2 | 2021-02-05   | Dominos       |  10.75 |
+|  3 |          3 | 2021-02-10   | Panda Express |  18.40 |
++----+------------+--------------+---------------+--------+
