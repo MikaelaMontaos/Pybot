@@ -1,6 +1,6 @@
 <resources>
 
-    <string name="app_name">Food Shop</string>
+    <string name="app_name">Pybot</string>
     <string name="signup">Sign up</string>
     <string name="signin">Sign in</string>
     <string name="already_have_account">Already Have Account?</string>
