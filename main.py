@@ -27,20 +27,18 @@ def index():
 
 @app.route('/Users', methods=['POST'])
 def Users():
-    username = request.form['username']
-    password = request.form['password']
+    email = request.form['email']
     firstname = request.form['firstname']
     lastname = request.form['lastname']
-    email = request.form['email']
+    password = request.form['password']
     db = get_db()
     err = db.execute(
-    'insert into User (username, password, firstname,lastname, email) values (?,?,?,?,?)',
+    'insert into User (email, firstname, lastname, password) values (?,?,?,?)',
     (
-        request.form.get('username', type=str),
-        request.form.get('password', type=str),
+        request.form.get('email', type=str),
         request.form.get('firstname', type=str),
-        request.form.get('lastname', type=str),
-        request.form.get('email', type=str)
+        request.form.get('lastname', type=str), 
+        request.form.get('password', type=str)
     )
     )
     db.commit()
@@ -51,10 +49,10 @@ def Users():
 @app.route('/login', methods=['POST'])
 def Login():
     db = get_db()
-    username = request.form['username']
+    email = request.form['email']
     password = request.form['password']
     cur = db.execute(
-        'SELECT * FROM User WHERE username=?', (username,)
+        'SELECT * FROM User WHERE email=?', (email,)
     )
     rows = cur.fetchall()
     print (rows)
