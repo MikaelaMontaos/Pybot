@@ -71,13 +71,15 @@
             android:outlineAmbientShadowColor="@color/primary2light"
 
             >
+
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_email"
                 android:layout_width="match_parent"
-                android:textSize="@dimen/textedit"
+                android:layout_height="40sp"
                 android:fontFamily="@font/comforta"
                 android:inputType="textPersonName"
                 android:padding="1sp"
-                android:layout_height="40sp"/>
+                android:textSize="@dimen/textedit" />
         </com.google.android.material.textfield.TextInputLayout>
 <LinearLayout
     android:layout_width="250dp"
@@ -104,13 +106,14 @@ android:layout_marginEnd="1dp"
 
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_firstname"
             android:layout_width="match_parent"
             android:layout_height="40sp"
-            android:maxLength="11"
             android:fontFamily="@font/comforta"
             android:inputType="phone"
-            android:padding="1sp"
+            android:maxLength="11"
 
+            android:padding="1sp"
             android:textSize="@dimen/textedit" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -131,13 +134,14 @@ android:layout_marginStart="1dp"
 
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_lastname"
             android:layout_width="match_parent"
             android:layout_height="40sp"
-            android:maxLength="11"
             android:fontFamily="@font/comforta"
             android:inputType="phone"
-            android:padding="1sp"
+            android:maxLength="11"
 
+            android:padding="1sp"
             android:textSize="@dimen/textedit" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -158,12 +162,13 @@ android:layout_marginStart="1dp"
             >
 
             <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="40sp"
+                android:fontFamily="@font/comforta"
+                android:inputType="textPassword"
                 android:padding="1sp"
-            android:textSize="@dimen/textedit"
-            android:fontFamily="@font/comforta"
-            android:inputType="textPassword"
-            android:layout_height="40sp"/>
+                android:textSize="@dimen/textedit" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
