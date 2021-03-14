@@ -6,7 +6,7 @@
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
     android:background="@drawable/backg"
-    tools:context="com.FoodShop.Login">
+    tools:context="com.FoodShop.LoginActivity">
 
     <ImageView
         android:layout_marginTop="100dp"
@@ -73,14 +73,16 @@ app:cardBackgroundColor="@color/lightgray"
             android:outlineAmbientShadowColor="@color/primary2light"
 
             >
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
 
-                android:textSize="@dimen/textedit"
-android:fontFamily="@font/comforta"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_email_login"
+
+                android:layout_width="match_parent"
+                android:layout_height="40sp"
+                android:fontFamily="@font/comforta"
                 android:inputType="textPersonName"
                 android:padding="1sp"
-                android:layout_height="40sp"/>
+                android:textSize="@dimen/textedit" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="250dp"
@@ -93,14 +95,16 @@ android:fontFamily="@font/comforta"
             android:hint="@string/password"
             android:imeOptions="flagNoExtractUi"
             >
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
 
-                android:padding="1sp"
-                android:textSize="@dimen/textedit"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_password_login"
+
+                android:layout_width="match_parent"
+                android:layout_height="40sp"
                 android:fontFamily="@font/comforta"
                 android:inputType="textPassword"
-                android:layout_height="40sp"/>
+                android:padding="1sp"
+                android:textSize="@dimen/textedit" />
         </com.google.android.material.textfield.TextInputLayout>
         <TextView
             android:fontFamily="@font/comforta"
