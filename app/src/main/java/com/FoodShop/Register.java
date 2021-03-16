@@ -76,7 +76,6 @@ public class Register extends AppCompatActivity {
                             Toast.makeText(Register.this, "Registration successful", Toast.LENGTH_LONG).show();
                         }
                     });
-                    Toast.makeText(Register.this, "Registration successful", Toast.LENGTH_LONG).show();
                     // todo: MainActivity goes back to homepage
 
                     Intent intent = new Intent(Register.this, MainActivity.class);
@@ -89,4 +88,3 @@ public class Register extends AppCompatActivity {
         });
     }
 }
-
