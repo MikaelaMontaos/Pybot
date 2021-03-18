@@ -1,7 +1,9 @@
+  
 from flask import Flask, render_template, flash,request, url_for, redirect 
 import sqlite3
 from flask import g
 from flask import abort
+import json
 
 DATABASE = 'database.db'
 app = Flask(__name__)
@@ -46,6 +48,131 @@ def Users():
 
     return email.upper()
 
+@app.route('/food')
+def get_food():
+    db = get_db()
+    cur = db.execute(
+        'SELECT * FROM Food_Items'
+    )
+    rows = cur.fetchall()
+    items = []
+    for r in rows:
+        d = {}
+        d['id'] = r[0]
+        d['name'] = r[1]
+        d['price'] = r[2]
+        d['calories'] = r[3]
+        items.append(d)
+    
+    response = app.response_class(
+        response=json.dumps(items),
+        status=200,
+        mimetype='application/json'
+    )
+    return response
+
+@app.route ('/order', methods=['POST'])
+def add_order():
+    db = get_db()
+    user_id = request.form['user_id']
+    item_id = request.form['item_id']
+    quantity = request.form['quantity']
+    amount = request.form['amount']
+
+    print(user_id, quantity)
+
+    err = db.execute(
+    'insert into Orders (user_id, item_id, quantity, status, amount) values (?,?,?,?,?)',
+    (
+        user_id,
+        item_id,
+        quantity,
+        "PLACED",
+        amount
+    )
+    )
+    db.commit()
+    print(err)
+
+    return 'Order is placed'
+
+
+@app.route('/payment', methods = ['POST'])
+def add_payment():
+    db= get_db()
+    order_id = request.form['order_id']
+    name_on_card = request.form['name_on_card']
+    exp_date = request.form['exp_date']
+    cvv = request.form['cvv']
+    
+    err = db.execute(
+    'insert into Payment (order_id, name_on_card, exp_date, cvv) values (?,?,?,?)',
+    (
+        order_id,
+        name_on_card,
+        exp_date,
+        cvv
+    )
+    )
+    db.commit()
+    print(err)
+    
+    return 'Payment completed'
+
+
+
+@app.route ('/order', methods = ['GET'])
+def get_orders():
+    db = get_db()
+    cur = db.execute(
+        'SELECT * FROM Orders'
+    )
+    rows = cur.fetchall()
+    items = []
+    for r in rows:
+        d = {}
+        d['id'] = r[0]
+        d['user_id'] = r[1]
+        d['item_id'] = r[2]
+        d['quantity'] = r[3]
+        d['status'] = r[4]
+        d['amount'] = r[5]
+        items.append(d)
+    
+    response = app.response_class(
+        response=json.dumps(items),
+        status=200,
+        mimetype='application/json'
+    )
+    return response
+
+@app.route('/payment', methods=['GET'])
+def get_payment():
+    db = get_db()
+    cur = db.execute(
+        'SELECT * FROM Payment'
+    )
+    rows=cur.fetchall()
+    payments=[]
+
+    for r in rows:
+        d = {}
+        d['id'] = r[0]
+        d['order_id'] = r[1]
+        d['name_on_card'] = r[2]
+        d['exp_date'] = r[3]
+        d['cvv'] = r[4]
+        payments.append(d)
+    
+    response = app.response_class(
+        response=json.dumps(payments),
+        status=200,
+        mimetype='application/json'
+    )
+    return response
+
+
+
 @app.route('/login', methods=['POST'])
 def Login():
     db = get_db()
@@ -70,8 +197,6 @@ def init_db():
 
     with app.open_resource('schema.sql') as f:
         db.executescript(f.read().decode('utf8'))
-
-
 
 if __name__ == '__main__':
     init_db()
