@@ -59,7 +59,7 @@ def get_food():
     for r in rows:
         d = {}
         d['id'] = r[0]
-        d['name'] = r[1]
+        d['name'] = r[1]   
         d['price'] = r[2]
         d['calories'] = r[3]
         items.append(d)
@@ -78,23 +78,25 @@ def add_order():
     item_id = request.form['item_id']
     quantity = request.form['quantity']
     amount = request.form['amount']
+    delivery_address = request.form['delivery_address']
 
     print(user_id, quantity)
 
     err = db.execute(
-    'insert into Orders (user_id, item_id, quantity, status, amount) values (?,?,?,?,?)',
+    'insert into Orders (user_id, item_id, quantity, status, amount, delivery_address) values (?,?,?,?,?,?)',
     (
         user_id,
         item_id,
         quantity,
         "PLACED",
-        amount
+        amount,
+        delivery_address
     )
     )
     db.commit()
     print(err)
 
-    return 'Order is placed'
+    return 'Order is placed '
 
 
 @app.route('/payment', methods = ['POST'])
@@ -137,6 +139,8 @@ def get_orders():
         d['quantity'] = r[3]
         d['status'] = r[4]
         d['amount'] = r[5]
+        d['delivery_address'] = r[6]
+
         items.append(d)
     
     response = app.response_class(
@@ -189,8 +193,8 @@ def Login():
         if (rows[0][2] != password):
             abort(403)
         else:
-            return 'Login is successful'
-
+            return "Login is successful with user id:{}".format(rows[0][0])
+    
 def init_db():
     db = get_db()
     print ("Initializaing database")
