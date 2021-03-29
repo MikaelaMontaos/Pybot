@@ -1,0 +1,6 @@
+$ curl -X POST -F 'email=namrata' -F 'password=namrata' -F 'firstname=namrata' -F 'lastname=waybhase' localhost:5000/Users -v
+$ curl -X POST -F 'email=namrata' -F 'password=nalocalhost:5000/login -v
+$ curl -X POST -F 'user_id=1' -F 'item_id=1' -F 'amount=2' -F 'quantity=1' -F 'delivery_address=redwoodcity' localhost:5000/order
+$ curl localhost:5000/order
+$ curl -X POST -F 'order_id=1' -F 'name_on_card=namratawaybhase' -F 'exp_date=11/12' -F 'cvv=102'  localhost:5000/payment
+$ curl localhost:5000/payment
