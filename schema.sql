@@ -33,6 +33,7 @@ CREATE TABLE Orders (
   quantity INTEGER, 
   status TEXT,
   amount REAL,
+  delivery_address TEXT,
   FOREIGN KEY(user_id) REFERENCES User(id),
   FOREIGN KEY(item_id) REFERENCES Food_Items(id)
 );
@@ -61,6 +62,7 @@ values (3, 'Mexican pizza', 22.00, 200);
 
 Insert into Food_Items 
 values (4, 'Salad', 8.00, 200);
+
 
 
 
