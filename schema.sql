@@ -3,6 +3,8 @@ DROP TABLE IF EXISTS Vendor;
 DROP TABLE IF EXISTS Food_Items;
 DROP TABLE IF EXISTS Orders;
 DROP TABLE IF EXISTS Payment;
+DROP TABLE IF EXISTS Cart;
+
 
 CREATE TABLE User (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -47,6 +49,14 @@ CREATE TABLE Payment(
   FOREIGN KEY(order_id) REFERENCES Orders(id)
 );
 
+CREATE TABLE Cart(
+  user_id INTEGER,
+  order_id INTEGER,
+  FOREIGN KEY(user_id) REFERENCES User(id),
+  FOREIGN KEY(order_id) REFERENCES Orders(id)
+
+);
+
 
 Insert into Vendor
 values(110,'Chipotle','Redwood City','713-792-9390');
@@ -62,8 +72,6 @@ values (3, 'Mexican pizza', 22.00, 200);
 
 Insert into Food_Items 
 values (4, 'Salad', 8.00, 200);
-
-
 
 
 '''
