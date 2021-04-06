@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backg"
+    android:background="@drawable/new_backg"
     android:orientation="vertical"
-    tools:context="com.FoodShop.Sign">
+    tools:context="com.FoodShop.SigninActivity">
 <ImageView
     android:layout_marginTop="100dp"
     android:src="@drawable/logo"
