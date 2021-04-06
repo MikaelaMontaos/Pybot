@@ -1,232 +1,244 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Cart">
+    tools:context=".CartActivity">
+
     <RelativeLayout
 
-        android:layout_marginHorizontal="30dp"
-        android:layout_width="match_parent"
         android:id="@+id/l1"
-        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginHorizontal="30dp"
         android:background="@drawable/top_title"
-        android:layout_height="55dp">
+        android:orientation="horizontal">
+
         <TextView
-            android:textSize="20sp"
-            android:layout_marginTop="1dp"
-            android:textColor="@color/white"
-            android:textStyle="bold"
             android:id="@+id/menuTitle"
             android:layout_width="match_parent"
-            android:gravity="center"
             android:layout_height="50dp"
-            android:text="Checkout" />
-
-
+            android:layout_marginTop="1dp"
+            android:gravity="center"
+            android:text="Checkout"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
 
     </RelativeLayout>
 
     <ScrollView
-        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/payBtn1"
         android:layout_below="@id/l1"
-        android:layout_above="@id/payBtn"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+        android:layout_marginTop="10dp">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-              android:id="@+id/l2"
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-              android:layout_height="wrap_content"
-        android:minHeight="100dp"
-        app:cardCornerRadius="20dp"
-              app:cardBackgroundColor="#F6F6F6"
-        android:layout_marginHorizontal="20dp">
-
-              <androidx.recyclerview.widget.RecyclerView
-                  android:layout_width="match_parent"
-                  android:id="@+id/cartListView"
-                  android:layout_height="wrap_content" />
-    </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_marginTop="30dp"
-              android:layout_height="wrap_content"
-        android:minHeight="100dp"
-            android:id="@+id/l3"
-            android:layout_below="@id/l2"
-            app:cardCornerRadius="20dp"
-              app:cardBackgroundColor="#F6F6F6"
-        android:layout_marginHorizontal="20dp">
-            <LinearLayout
-                android:paddingTop="10dp"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/l2"
                 android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_height="match_parent">
 
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:minHeight="100dp"
+                app:cardBackgroundColor="#F6F6F6"
+                app:cardCornerRadius="20dp">
 
-            <LinearLayout
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/cartListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/l3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:weightSum="4"
-                android:orientation="horizontal">
+                android:layout_below="@id/l2"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="30dp"
+                android:minHeight="100dp"
+                app:cardBackgroundColor="#F6F6F6"
+                app:cardCornerRadius="20dp">
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="2"
-                    android:layout_height="wrap_content"
-                    android:text="Sub total: "
-                    android:textAlignment="textEnd"
-                    android:textSize="17sp"
-                    android:padding="5dp"/>
-                <TextView
-
-                    android:textSize="17sp"
-                    android:layout_width="0dp"
-                    android:layout_weight="2"
-                    android:layout_height="wrap_content"
-                    android:text="$19.99"  />
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="4"
-
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="2"
-                    android:layout_height="wrap_content"
-                    android:text="Delivery Fee: "
-                    android:textAlignment="textEnd"
-                    android:textSize="17sp"
-                    android:padding="5dp"/>
-                <TextView
-
-                    android:textSize="17sp"
-                    android:layout_width="0dp"
-                    android:layout_weight="2"
-                    android:layout_height="wrap_content"
-                    android:text="$3.99"  />
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="4"
-
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="2"
-                    android:layout_height="wrap_content"
-                    android:text="Tax: "
-                    android:textAlignment="textEnd"
-                    android:textSize="17sp"
-                    android:padding="5dp"/>
-                <TextView
-
-                    android:textSize="17sp"
-                    android:layout_width="0dp"
-                    android:layout_weight="2"
-                    android:layout_height="wrap_content"
-                    android:text="$4.99"  />
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="4"
-
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="2"
-                    android:layout_height="wrap_content"
-                    android:text="Total:"
-                    android:textAlignment="textEnd"
-                    android:textSize="18sp"
-                    android:padding="10dp"/>
-                <TextView
-
-                    android:textSize="23sp"
-                    android:layout_width="0dp"
-                    android:layout_weight="2"
-                    android:textStyle="bold"
-                    android:layout_height="wrap_content"
-                    android:text="$34.96"  />
-
-            </LinearLayout>
-            </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_marginTop="30dp"
-              android:layout_height="100dp"
-            android:layout_below="@id/l3"
-            app:cardCornerRadius="20dp"
-              app:cardBackgroundColor="#F6F6F6"
-        android:layout_marginHorizontal="20dp">
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
-                android:layout_width="match_parent"
-
-
-                android:layout_height="match_parent"
-                android:layout_marginStart="1dp"
-                android:hint="Delivery Adderess"
-                android:imeOptions="flagNoExtractUi"
-                android:outlineAmbientShadowColor="@color/primary2light"
-
-                >
-
-
-                <com.google.android.material.textfield.TextInputEditText
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:fontFamily="@font/comforta"
-
-                    android:inputType="text"
-                    android:padding="10sp"
-
-android:minLines="6"
-                    android:textSize="@dimen/textedit" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:orientation="vertical"
+                    android:paddingTop="10dp">
 
 
-        </androidx.cardview.widget.CardView>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="4">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:padding="5dp"
+                            android:text="Sub total: "
+                            android:textAlignment="textEnd"
+                            android:textSize="17sp" />
+
+                        <TextView
+
+                            android:id="@+id/tv_subtotal"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:text="$19.99"
+                            android:textSize="17sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+
+                        android:weightSum="4">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:padding="5dp"
+                            android:text="Delivery Fee: "
+                            android:textAlignment="textEnd"
+                            android:textSize="17sp" />
+
+                        <TextView
+
+                            android:id="@+id/tv_delivery_fee"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:text="$3.99"
+                            android:textSize="17sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+
+                        android:weightSum="4">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:padding="5dp"
+                            android:text="Tax: "
+                            android:textAlignment="textEnd"
+                            android:textSize="17sp" />
+
+                        <TextView
+
+                            android:id="@+id/tv_tax"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:text="$4.99"
+                            android:textSize="17sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+
+                        android:weightSum="4">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:padding="10dp"
+                            android:text="Total:"
+                            android:textAlignment="textEnd"
+                            android:textSize="18sp" />
+
+                        <TextView
+
+                            android:id="@+id/tv_total"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:text="$34.96"
+                            android:textSize="23sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_below="@id/l3"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="30dp"
+                app:cardBackgroundColor="#F6F6F6"
+                app:cardCornerRadius="20dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                    android:layout_width="match_parent"
 
 
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="1dp"
+                    android:hint="Delivery Address"
+                    android:imeOptions="flagNoExtractUi"
+                    android:outlineAmbientShadowColor="@color/primary2light"
+
+                    >
 
 
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/delivery_addr"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:fontFamily="@font/comforta"
+                        android:inputType="text"
+
+                        android:minLines="6"
+                        android:padding="10sp"
+                        android:textSize="@dimen/textedit" />
+                </com.google.android.material.textfield.TextInputLayout>
 
 
+            </androidx.cardview.widget.CardView>
 
 
-</RelativeLayout>
+        </RelativeLayout>
 
 
-</ScrollView>
-    <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
+    </ScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/payBtn1"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/payBtn"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_margin="20dp"
         android:backgroundTint="@color/primary"
+        android:hint="Pay"
         android:textColorHint="@color/white"
-        android:hint="Pay"/>
+        app:cornerRadius="25dp" />
 
 </RelativeLayout>
