@@ -22,7 +22,7 @@ app:cardBackgroundColor="@color/primary"
 
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:src="@drawable/useravatar"/>
+        android:src="@drawable/new_useravatar"/>
     <TextView
         android:layout_width="wrap_content"
 
