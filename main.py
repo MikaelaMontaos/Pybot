@@ -1,5 +1,4 @@
-
-from flask import Flask, render_template, flash, request, url_for, redirect
+ from flask import Flask, render_template, flash, request, url_for, redirect
 import sqlite3
 from flask import g
 from flask import abort
@@ -49,7 +48,7 @@ def Users():
     db.commit()
     print(err)
 
-    return email.upper()
+    return "Registration is successful"
 
 
 @app.route('/food')
@@ -80,52 +79,55 @@ def get_food():
 def add_order():
     db = get_db()
     user_id = request.form['user_id']
-    item_id = request.form['item_id']
-    quantity = request.form['quantity']
-    amount = request.form['amount']
-    delivery_address = request.form['delivery_address']
+    total = request.form['total']
 
-    print(user_id, quantity)
+    item_detail = request.form['item_detail']
+    delivery_address = request.form['delivery_address']
+    order_list=[]
+
 
     err = db.execute(
-        'insert into Orders (user_id, item_id, quantity, status, amount, delivery_address) values (?,?,?,?,?,?)',
+        'insert into Orders (user_id, status, total, delivery_address) values (?,?,?,?)',
         (
             user_id,
-            item_id,
-            quantity,
             "PLACED",
-            amount,
-            delivery_address
+            total,
+            delivery_address,
         )
     )
-    print ("Last Inserted row is ", err.lastrowid)
+
     order_id = err.lastrowid
     db.commit()
-    print(err)
-    err = db.execute(
-        'insert into Cart (user_id,order_id) values (?,?)',
-        (            
-            user_id,
-            order_id,
+    for key, value in eval(item_detail).items():
+        item_id = value[0]
+        quantity = value[1]
+        err = db.execute(
+            'insert into Cart (order_id, item_id, quantity) values (?,?,?)',
+            (
+                order_id,
+                item_id,
+                quantity
+            )
         )
-    )
-    db.commit()
-    print(err)
-    return ('Order is successfully added to Cart ', order_id)
+        db.commit()
 
+
+    return str(order_id)
 
 @app.route('/payment', methods=['POST'])
 def add_payment():
     db = get_db()
     order_id = request.form['order_id']
+    card_num = request.form['card_num']
     name_on_card = request.form['name_on_card']
     exp_date = request.form['exp_date']
     cvv = request.form['cvv']
 
     err = db.execute(
-        'insert into Payment (order_id, name_on_card, exp_date, cvv) values (?,?,?,?)',
+        'insert into Payment (order_id, card_num, name_on_card, exp_date, cvv) values (?,?,?,?,?)',
         (
             order_id,
+            card_num,
             name_on_card,
             exp_date,
             cvv
@@ -137,23 +139,22 @@ def add_payment():
     return 'Payment completed'
 
 
-@app.route('/order', methods=['GET'])
-def get_orders():
+@app.route('/order/<int:order_id>', methods=['GET'])
+def get_orders(order_id):
     db = get_db()
     cur = db.execute(
-        'SELECT * FROM Orders'
+        'SELECT user_id, item_id, quantity FROM Cart \
+         JOIN Orders \
+         ON Orders.id = order_id \
+         WHERE order_id=?' ,(order_id,)
     )
     rows = cur.fetchall()
     items = []
     for r in rows:
         d = {}
-        d['id'] = r[0]
-        d['user_id'] = r[1]
-        d['item_id'] = r[2]
-        d['quantity'] = r[3]
-        d['status'] = r[4]
-        d['amount'] = r[5]
-        d['delivery_address'] = r[6]
+        d['user_id'] = r[0]
+        d['item_id'] = r[1]
+        d['quantity'] = r[2]
 
         items.append(d)
 
@@ -167,13 +168,16 @@ def get_orders():
 @app.route('/add_cart', methods=['POST'])
 def add_cart():
     db = get_db()
-    user_id = request.form['user_id']
+
     order_id = request.form['order_id']
+    item_id = request.form['item_id']
+    quantity = request.form['quantity']
     err = db.execute(
-        'insert into Cart (user_id,order_id) values (?,?)',
-        (            
-            user_id,
+        'insert into Cart (order_id, item_id, quantity) values (?,?,?)',
+        (
             order_id,
+            item_id,
+            quantity
         )
     )
     db.commit()
@@ -195,7 +199,7 @@ def get_payment():
         d = {}
         d['id'] = r[0]
         d['order_id'] = r[1]
-        d['name_on_card'] = r[2]
+        d['name_on_card'] = r[2],(user_id)
         d['exp_date'] = r[3]
         d['cvv'] = r[4]
         payments.append(d)
@@ -208,27 +212,30 @@ def get_payment():
     return response
 
 
-@app.route('/cart', methods=['GET'])
-def get_cart():
+@app.route('/cart/<int:order_id>', methods=['GET'])
+def get_cart(order_id):
     db = get_db()
-    user_id = request.args.get('user_id')
+    #order_id = request.args.get('order_id')
+
     cur = db.execute(
-        'SELECT * FROM Cart where user_id =?',(user_id) 
+        'SELECT * FROM Cart where order_id =?',(order_id,)
     )
     rows = cur.fetchall()
     cart = []
     for r in rows:
         d = {}
-        d['user_id'] = r[0]
-        d['order_id'] = r[1]
+        d['order_id'] = r[0]
+        d['item_id'] = r[1]
+        d['quantity'] = r[2]
         cart.append(d)
-    
+
     response = app.response_class(
         response=json.dumps(cart),
         status=200,
         mimetype='application/json'
     )
     return response
+
 
 @app.route('/login', methods=['POST'])
 def Login():
@@ -243,7 +250,7 @@ def Login():
     if len(rows) <= 0:
         abort(404)
     else:
-        if (rows[0][2] != password):
+        if (rows[0][4] != password):
             abort(403)
         else:
             return "Login is successful with user id:{}".format(rows[0][0])
@@ -263,4 +270,4 @@ def init_db():
 
 if __name__ == '__main__':
     init_db()
-    app.run(debug=True)
+    app.run(debug=True) 
