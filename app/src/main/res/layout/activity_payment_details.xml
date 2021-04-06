@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PaymentDetails">
+    <RelativeLayout
+
+        android:layout_marginHorizontal="30dp"
+        android:layout_width="match_parent"
+        android:id="@+id/l1"
+        android:orientation="horizontal"
+        android:background="@drawable/top_title"
+        android:layout_height="55dp">
+        <TextView
+            android:textSize="20sp"
+            android:layout_marginTop="1dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:id="@+id/menuTitle"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="50dp"
+            android:text="Payment Detail" />
+    </RelativeLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/l3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="20dp"
+        android:minHeight="220dp"
+        app:cardBackgroundColor="#F6F6F6"
+        app:cardCornerRadius="20dp">
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/paydebit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Debit/Credit"/>
+            <RadioButton
+                android:id="@+id/paypaypal"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="210dp"
+                android:layout_marginBottom="10dp"
+                android:text="Paypal"/>
+        </RadioGroup>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="250dp"
+            app:endIconMode="clear_text"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:hint="Card Number"
+            android:layout_marginTop="60dp"
+            android:layout_gravity="center_horizontal"
+            android:imeOptions="flagNoExtractUi"
+            android:textAlignment="center"
+            android:outlineAmbientShadowColor="@color/primary2light"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_cardnum"
+
+                android:layout_width="match_parent"
+                android:layout_height="40sp"
+                android:fontFamily="@font/comforta"
+                android:inputType="number"
+                android:maxLength="16"
+                android:padding="1sp"
+                android:textSize="@dimen/textedit" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <LinearLayout
+            android:layout_marginTop="110dp"
+            android:layout_width="250dp"
+            android:weightSum="10"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="6"
+                android:hint="Valid until MM/YY"
+                android:imeOptions="flagNoExtractUi"
+                android:outlineAmbientShadowColor="@color/primary2light"
+                android:textAlignment="center"
+                app:endIconMode="clear_text">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_exp"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="40sp"
+                    android:fontFamily="@font/comforta"
+                    android:inputType="date"
+                    android:maxLength="5"
+                    android:padding="1sp"
+                    android:textSize="@dimen/textedit" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                app:endIconMode="clear_text"
+                android:layout_weight="4"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:hint="CVV2"
+              android:layout_marginStart="5dp"
+                android:layout_gravity="center_horizontal"
+                android:imeOptions="flagNoExtractUi"
+                android:textAlignment="center"
+                android:outlineAmbientShadowColor="@color/primary2light"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_cvv"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="40sp"
+                    android:fontFamily="@font/comforta"
+                    android:inputType="number"
+                    android:maxLength="4"
+                    android:padding="1sp"
+                    android:textSize="@dimen/textedit" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="250dp"
+            app:endIconMode="clear_text"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:hint="Name on card"
+            android:layout_marginTop="160dp"
+            android:layout_gravity="center_horizontal"
+            android:imeOptions="flagNoExtractUi"
+            android:textAlignment="center"
+            android:outlineAmbientShadowColor="@color/primary2light"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_name"
+
+                android:layout_width="match_parent"
+                android:layout_height="40sp"
+                android:fontFamily="@font/comforta"
+                android:inputType="textPersonName"
+                android:padding="1sp"
+                android:textSize="@dimen/textedit" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:weightSum="2"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginBottom="20dp"
+        >
+        <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:id="@+id/payMethodEditBtn"
+            android:layout_alignParentBottom="true"
+            android:layout_marginHorizontal="5dp"
+            android:backgroundTint="@color/primary"
+            android:textColorHint="@color/white"
+            android:hint="Edit order"/>
+        <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:id="@+id/payDetailPlaceBtn"
+            android:layout_alignParentBottom="true"
+            android:layout_marginHorizontal="5dp"
+            android:backgroundTint="@color/primary"
+            android:textColorHint="@color/white"
+            android:hint="Place order"/>
+    </LinearLayout>
+
+
+</RelativeLayout>

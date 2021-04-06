@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".PaymentMethod">
+        <RelativeLayout
+
+            android:layout_marginHorizontal="30dp"
+            android:layout_width="match_parent"
+            android:id="@+id/l1"
+            android:orientation="horizontal"
+            android:background="@drawable/top_title"
+            android:layout_height="55dp">
+            <TextView
+                android:textSize="20sp"
+                android:layout_marginTop="1dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:id="@+id/menuTitle"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="50dp"
+                android:text="Payment Method" />
+        </RelativeLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/l3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+      android:layout_marginTop="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="20dp"
+        android:minHeight="120dp"
+        app:cardBackgroundColor="#F6F6F6"
+        app:cardCornerRadius="20dp">
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+<RadioButton
+    android:id="@+id/paydebit"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="18sp"
+    android:layout_marginStart="10dp"
+    android:layout_marginTop="10dp"
+    android:text="Debit/Credit"/>
+  <RadioButton
+    android:id="@+id/paypaypal"
+
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="18sp"
+    android:layout_marginStart="10dp"
+    android:layout_marginTop="60dp"
+    android:text="Paypal"/>
+
+        </RadioGroup>
+    </androidx.cardview.widget.CardView>
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:weightSum="2"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginBottom="20dp"
+    >
+    <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="50dp"
+        android:id="@+id/payEditBtn"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="5dp"
+        android:backgroundTint="@color/primary"
+        android:textColorHint="@color/white"
+        android:hint="Edit order"/>
+    <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="50dp"
+        android:id="@+id/payContinueBtn"
+
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="5dp"
+        android:backgroundTint="@color/primary"
+        android:textColorHint="@color/white"
+        android:hint="Continue"/>
+</LinearLayout>
+
+
+    </RelativeLayout>
