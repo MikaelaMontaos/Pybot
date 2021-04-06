@@ -4,8 +4,6 @@ DROP TABLE IF EXISTS Food_Items;
 DROP TABLE IF EXISTS Orders;
 DROP TABLE IF EXISTS Payment;
 DROP TABLE IF EXISTS Cart;
-
-
 CREATE TABLE User (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   email TEXT UNIQUE NOT NULL,
@@ -30,58 +28,42 @@ CREATE TABLE Food_Items (
 
 CREATE TABLE Orders (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  user_id INTEGER, 
-  item_id INTEGER,
-  quantity INTEGER, 
+  user_id INTEGER,
   status TEXT,
-  amount REAL,
+  total REAL,
   delivery_address TEXT,
-  FOREIGN KEY(user_id) REFERENCES User(id),
-  FOREIGN KEY(item_id) REFERENCES Food_Items(id)
+  FOREIGN KEY(user_id) REFERENCES User(id)
+
 );
 
 CREATE TABLE Payment(
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   order_id INTEGER,
+  card_num INTEGER NOT NULL,
   name_on_card TEXT NOT NULL,
   exp_date DATE NOT NULL,
-  cvv INTEGER NOT NULL, 
+  cvv INTEGER NOT NULL,
   FOREIGN KEY(order_id) REFERENCES Orders(id)
 );
-
 CREATE TABLE Cart(
-  user_id INTEGER,
   order_id INTEGER,
-  FOREIGN KEY(user_id) REFERENCES User(id),
-  FOREIGN KEY(order_id) REFERENCES Orders(id)
-
+  item_id INTEGER,
+  quantity INTEGER,
+  FOREIGN KEY(order_id) REFERENCES Orders(id),
+  FOREIGN KEY(item_id) REFERENCES Food_Items(id)
 );
-
 
 Insert into Vendor
 values(110,'Chipotle','Redwood City','713-792-9390');
 
-Insert into Food_Items 
+Insert into Food_Items
 values (1, 'Burrito', 17.00, 400);
 
-Insert into Food_Items 
+Insert into Food_Items
 values (2, ' Burrito bowl Bowl', 12.00, 200);
 
-Insert into Food_Items 
+Insert into Food_Items
 values (3, 'Mexican pizza', 22.00, 200);
 
-Insert into Food_Items 
-values (4, 'Salad', 8.00, 200);
-
-
-'''
-Insert into Vendor
-values(111,'McDonald','Mountain View','713-668-5882');
-
-Insert into Vendor
-values(222,'Panda Express','Mountain View','713-668-7898');
-
-Insert into Vendor
-values(333,'Burger King','San Jose','713-989-1111');
-
-'''
+Insert into Food_Items
+values (4, 'Salad', 8.00, 200); 
