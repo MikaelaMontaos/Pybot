@@ -3,48 +3,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ResMenu">
+    tools:context="com.fragments.ResMenuFragment">
+
     <RelativeLayout
-
-        android:layout_marginHorizontal="30dp"
-        android:layout_width="match_parent"
         android:id="@+id/l1"
-        android:orientation="horizontal"
-        android:background="@drawable/top_title"
-        android:layout_height="55dp">
-
-
-
-
-    </RelativeLayout>
-    <TextView
-        android:textSize="20sp"
-        android:layout_marginTop="1dp"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-android:id="@+id/menuTitle"
         android:layout_width="match_parent"
-        android:gravity="center"
+        android:layout_height="55dp"
+        android:layout_marginHorizontal="30dp"
+        android:background="@drawable/top_title"
+        android:orientation="horizontal"></RelativeLayout>
+
+    <TextView
+        android:id="@+id/menuTitle"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Restaurants" />
+        android:layout_marginTop="1dp"
+        android:gravity="center"
+        android:text="Restaurants"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_below="@id/l1"
-        android:layout_marginTop="10dp"
-        android:layout_above="@id/checkoutBtn"
-        android:layout_width="match_parent"
         android:id="@+id/menuListView"
-        android:layout_height="match_parent"/>
-
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/checkoutBtn"
+        android:layout_below="@id/l1"
+        android:layout_marginTop="10dp" />
 
     <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
+        android:id="@+id/checkoutBtn"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_margin="20dp"
-        android:id="@+id/checkoutBtn"
         android:backgroundTint="@color/primary"
-        android:textColorHint="@color/white"
-        android:hint="Checkout"/>
-
+        android:hint="Checkout"
+        android:textColorHint="@color/white" />
 </RelativeLayout>
