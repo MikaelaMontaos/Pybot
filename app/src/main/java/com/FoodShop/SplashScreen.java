@@ -7,9 +7,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SplashScreen extends AppCompatActivity {
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,27 +18,15 @@ public class SplashScreen extends AppCompatActivity {
 
                     Thread.sleep(2000);
 
-                            Intent intent= new Intent(SplashScreen.this,Sign.class);
+                            Intent intent= new Intent(SplashScreen.this, SigninActivity.class);
                             startActivity(intent);
                             finish();
-
-
-
-
-
-
-
-                } catch (InterruptedException e) {
-
-
+                }
+                catch (InterruptedException e) {
                 }
             }
         });
         thread.start();
-
-
-
-
     }
 
 }
