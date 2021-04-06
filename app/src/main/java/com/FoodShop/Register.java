@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
+import java.util.Objects;
 
 import br.com.simplepass.loadingbutton.customViews.CircularProgressButton;
 import okhttp3.Call;
@@ -48,10 +49,13 @@ public class Register extends AppCompatActivity {
                 String firstNameS = firstName.getText().toString();
                 String lastNameS = lastName.getText().toString();
                 String passwordS = password.getText().toString();
+
                 // if not empty
-                if(emailS != null && firstNameS != null && lastNameS != null && passwordS != null){
+                if(!emailS.isEmpty() && !firstNameS.isEmpty() && !lastNameS.isEmpty() && !passwordS.isEmpty()){
+
                     // connect to server
                     OkHttpClient okHttpClient = new OkHttpClient();
+
                     // post
                     RequestBody formBody = new FormBody.Builder()
                             .add("email", emailS)
@@ -60,6 +64,7 @@ public class Register extends AppCompatActivity {
                             .add("password", passwordS)
                             .build();
                     Request request = new Request.Builder().url("http://10.0.2.2:5000/Users").post(formBody).build();
+
                     // async call to connect
                     okHttpClient.newCall(request).enqueue(new Callback() {
                         @Override
@@ -72,15 +77,18 @@ public class Register extends AppCompatActivity {
                             });
                         }
                         @Override
-                        public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
-                            Toast.makeText(Register.this, "Registration successful", Toast.LENGTH_LONG).show();
+                        public void onResponse(@NotNull Call call, @NotNull final Response response) throws IOException {
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(Register.this, "Registration successful", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(Register.this, LoginActivity.class);
+                                    startActivity(intent);
+                                }
+                            });
+
                         }
                     });
-                    // todo: MainActivity goes back to homepage
-
-                    Intent intent = new Intent(Register.this, MainActivity.class);
-                    startActivity(intent);
-
                 }
                 else
                     Toast.makeText(Register.this, "Please complete form", Toast.LENGTH_SHORT).show();
